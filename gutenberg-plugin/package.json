@@ -1,0 +1,49 @@
+{
+  "name": "gracietco-gut",
+  "version": "0.0.7",
+  "description": "Collection de blocs personnalisés et d'extensions des blocs natifs pour l'éditeur de bloc Gutenberg",
+  "author": "Graciet & Co",
+  "license": "GPL-2.0-or-later",
+  "main": "build/main.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "plug": "wp-scripts build",
+    "lint": "npx eslint src/** --ignore-pattern 'src/editor\\.scss' && npx stylelint 'src/**/*.scss'",
+    "format:js": "wp-scripts format-js",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "start": "wp-scripts start",
+    "packages-update": "wp-scripts packages-update"
+  },
+  "devDependencies": {
+    "@wordpress/api-fetch": "^6.0.1",
+    "@wordpress/blob": "^3.3.1",
+    "@wordpress/block-editor": "^8.1.1",
+    "@wordpress/blocks": "^11.2.1",
+    "@wordpress/components": "^19.4.0",
+    "@wordpress/compose": "^5.1.1",
+    "@wordpress/core-data": "^4.1.1",
+    "@wordpress/data": "^6.2.1",
+    "@wordpress/element": "^4.1.1",
+    "@wordpress/hooks": "^3.3.1",
+    "@wordpress/i18n": "^4.3.1",
+    "@wordpress/icons": "^6.3.0",
+    "@wordpress/keycodes": "^3.3.1",
+    "@wordpress/notices": "^3.3.1",
+    "@wordpress/primitives": "^3.1.1",
+    "@wordpress/scripts": "^21.0.2",
+    "@wordpress/url": "^3.4.1",
+    "@wordpress/viewport": "^4.1.1",
+    "eslint": "^8.9.0",
+    "eslint-plugin-react": "^7.28.0",
+    "react-debounce-input": "^3.2.5",
+    "react-easy-crop": "^4.0.1",
+    "stylelint": "^14.5.1",
+    "stylelint-config-standard": "^25.0.0",
+    "stylelint-config-standard-scss": "^3.0.0"
+  },
+  "dependencies": {
+    "@monsonjeremy/react-leaflet": "^3.2.2",
+    "leaflet": "^1.7.1"
+  }
+}

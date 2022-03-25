@@ -1,0 +1,411 @@
+.interface-interface-skeleton__content + .interface-interface-skeleton__sidebar .interface-complementary-area {
+  width: 33.3vw;
+}
+
+.components-panel__body:first-child {
+  margin-top: -1px;
+}
+
+.block-editor-block-inspector > div:nth-child(2) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  .block-editor-block-inspector__advanced {
+    grid-column: 1/-1;
+  }
+}
+
+.block-editor-inner-blocks,
+.block-editor-block-list__layout {
+  width: 100%;
+}
+
+/* fix color picker */
+.editor-styles-wrapper .components-circular-option-picker__option {
+  border-radius: 50% !important;
+}
+
+.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper {
+  margin-top: 0 !important;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.editor-styles-wrapper .is-root-container {
+  padding-bottom: 1em;
+}
+
+/* icon selector */
+.components-modal__content::after {
+  display: block;
+  content: "";
+  height: 100px;
+}
+
+.components-modal__content .icons button {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.components-modal__content .icons button i {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+  background-color: black;
+}
+
+.icons-color-palette {
+  z-index: 10;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: white;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  width: 100%;
+
+  .components-circular-option-picker__swatches {
+    justify-content: center;
+  }
+}
+
+/* sidebar */
+.interface-interface-skeleton__sidebar {
+  overflow-x: hidden;
+
+  &[data-block="core/group"] {
+    .block-editor-block-inspector__advanced {
+      select option {
+        display: none;
+
+        &[value="main"],
+        &[value="footer"],
+        &[value="section"],
+        &[value="aside"] {
+          display: initial;
+        }
+      }
+    }
+  }
+
+  &[data-block="core/gallery"] {
+    .components-panel__body:not(.block-editor-block-inspector__advanced) {
+      display: none;
+    }
+
+    &[data-variation="carousel"] {
+      .components-panel__body:first-of-type {
+        display: block;
+        grid-column: 1/-1;
+      }
+    }
+  }
+
+  &[data-block="core/image"] {
+    .components-select-control {
+      display: none;
+    }
+
+    .block-editor-image-size-control {
+      display: none;
+    }
+  }
+
+  &[data-block="core/search"] {
+    .components-panel__body {
+      display: none;
+    }
+  }
+
+  &[data-block="core/columns"],
+  &[data-block="core/column"],
+  &[data-block="core/list"],
+  &[data-block="core/image"],
+  &[data-block="core/group"],
+  &[data-block="core/buttons"],
+  &[data-block="core/button"],
+  &[data-block="core/quote"],
+  &[data-block="gco/icon-and-text"],
+  &[data-block="gco/accordion"],
+  &[data-block="gco/accordion-item"],
+  &[data-block="gco/external-content"],
+  &[data-block="gco/coordinate"],
+  &[data-block*="gco/locked-group"],
+  &[data-block="core/heading"] {
+    .components-panel__body {
+      grid-column: 1/-1;
+    }
+  }
+
+  &[data-block="core/paragraph"] {
+    .components-panel__body:not(.block-editor-block-inspector__advanced) {
+      display: none;
+
+      &.notification-settings {
+        display: block;
+      }
+    }
+
+    &[data-variation="catchphrase"] {
+      .components-panel__body {
+        display: block;
+        grid-column: 1/-1;
+      }
+    }
+  }
+
+  &[data-block="core/cover"] {
+    .components-tools-panel {
+      display: none;
+    }
+
+    .components-panel__body {
+      grid-column: 1/-1;
+    }
+
+    .components-panel__body:not(.cta-settings) .components-base-control.components-toggle-control {
+      display: none;
+    }
+  }
+
+  &[data-block="core/post-title"],
+  &[data-block="core/post-excerpt"],
+  &[data-block="core/post-date"],
+  &[data-block="core/post-terms"],
+  &[data-block="core/post-featured-image"] {
+    .components-panel__body:not(.block-editor-block-inspector__advanced),
+    .components-tools-panel {
+      display: none;
+    }
+  }
+
+  &[data-block="core/query"] {
+    .wp-block-query__create-new-link {
+      display: none;
+    }
+
+    .components-base-control.components-toggle-control {
+      display: none;
+    }
+
+    .block-editor-block-inspector__advanced > div > div:first-child {
+      display: none;
+    }
+
+    .components-range-control {
+      display: none;
+    }
+  }
+}
+
+/* toolbar */
+.block-editor-block-contextual-toolbar {
+  &[data-block="core/quote"] {
+    .components-toolbar-group:first-of-type {
+      display: none;
+    }
+  }
+
+  &[data-block="core/query"] {
+    .block-editor-block-toolbar__slot .components-toolbar-group + .components-toolbar-group {
+      display: none;
+    }
+  }
+
+  &[data-block="core/cover"] {
+    .block-editor-block-toolbar__slot > button:last-child {
+      display: none;
+    }
+  }
+
+  &[data-block="core/cover"]:not([data-variation="cta"]) {
+    .block-editor-block-alignment-matrix-control {
+      display: none;
+    }
+  }
+
+  &[data-block="core/heading"] {
+    .block-editor-block-toolbar__slot .components-dropdown.components-dropdown-menu:nth-child(3),
+    .components-toolbar-group:nth-child(3) {
+      display: none;
+    }
+  }
+
+  &[data-block="core/image"] {
+    position: relative;
+    top: 39px;
+  }
+
+  &[data-block="core/search"] {
+    .block-editor-block-toolbar > .block-editor-block-toolbar__slot {
+      display: none;
+    }
+  }
+}
+
+/* zoom toolbar dropdown fix */
+.wp-block-image__zoom {
+  .components-popover__content {
+    width: 200px;
+    height: 90px;
+    padding-left: 10px;
+  }
+}
+
+/* only show icon on cover when it's a CTA with icon */
+.wp-block-cover.cta:not(.has-icon) {
+  .wp-block-gco-icon {
+    display: none;
+  }
+}
+
+/* fix image & cover resizing */
+figure.wp-block-image img + div .components-resizable-box__handle {
+  display: none !important;
+}
+
+.wp-block-cover,
+.wp-block-search {
+  .components-resizable-box__handle {
+    display: none !important;
+  }
+}
+
+.wp-block-quote figure.wp-block-image figcaption {
+  display: none !important;
+}
+
+/* fix quote image proportions / fixed as square */
+.wp-block-quote figure,
+.wp-block-quote figure div,
+.wp-block-quote figure div img {
+  height: 100% !important;
+}
+
+/* gallery media placeholder fake title */
+.wp-block-gallery.navgrid .block-editor-media-placeholder {
+  .components-placeholder__label {
+    font-size: 0;
+
+    &::after {
+      content: "Grille de navigation";
+      font-size: 18pt;
+      margin-left: 10px;
+    }
+  }
+}
+
+.wp-block-gallery.carousel .block-editor-media-placeholder {
+  .components-placeholder__label {
+    font-size: 0;
+
+    &::after {
+      content: "Carrousel";
+      font-size: 18pt;
+      margin-left: 10px;
+    }
+  }
+}
+
+/* icon button in icon-grid */
+.wp-block-gco-locked-group-icon-grid .wp-block-gco-icon button {
+  height: 100%;
+  box-shadow: none !important;
+}
+
+/* fix ul in variation picker */
+.block-editor-block-variation-picker__variations li::before {
+  display: none !important;
+}
+
+/* fix preview */
+
+/* not working */
+
+/*
+.block-editor-block-preview__container div iframe {
+  border: 2px solid red;
+  max-height: 240px;
+  overflow: hidden;
+  padding: 0 !important;
+}
+*/
+
+/* styles used to make blocks behaving like in the front-end */
+
+/* navgrid */
+.wp-block-gallery.navgrid {
+  figure {
+    --title: attr(data-title, "Découvrir");
+
+    & > div {
+      position: absolute;
+      z-index: 1;
+      width: auto !important;
+      height: auto !important;
+      inset: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    & > figcaption {
+      position: absolute;
+      z-index: 2;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &:hover + div,
+    & + div:hover {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      position: relative;
+      z-index: 2;
+      height: 0;
+      top: 2.5em;
+    }
+  }
+
+  .blocks-gallery-media-placeholder-wrapper {
+    width: 100%;
+  }
+
+  & > figcaption {
+    display: none;
+  }
+}
+
+.wp-block-gco-locked-group-tabs {
+  display: block !important;
+}
+
+/* block coordinates */
+.wp-block-gco-locked-group-coordinates > .block-editor-inner-blocks {
+  & > div {
+    display: grid;
+    row-gap: 0.5rem;
+  }
+
+  & .wp-block-gco-coordinate > .block-editor-inner-blocks {
+    grid-column: 1/2;
+
+    button {
+      vertical-align: top;
+      box-shadow: none;
+    }
+  }
+}

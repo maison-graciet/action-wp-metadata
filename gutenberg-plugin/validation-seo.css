@@ -1,0 +1,19 @@
+/* validation UI */
+.site-editor-php .edit-post-header button.components-button.editor-post-publish-button,
+.site-editor-php .edit-post-header button.components-button.editor-post-publish-button__button {
+  display: none;
+}
+
+#validateBtn.is-valid {
+  display: none;
+}
+
+#validateBtn.not-valid ~ button.components-button.editor-post-publish-button,
+#validateBtn.not-valid ~ button.components-button.editor-post-publish-button__button {
+  display: none;
+}
+
+#validateBtn.is-valid ~ button.components-button.editor-post-publish-button,
+#validateBtn.is-valid ~ button.components-button.editor-post-publish-button__button {
+  display: flex;
+}
