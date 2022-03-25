@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Increment action step
         id: increment
-        uses: maison-graciet/action-wp-metadata@v1.2
+        uses: maison-graciet/action-wp-metadata@v1.1
         with:
           folder: 'gutenberg-plugin'
           indexFile: 'gracietco-gut.php'
