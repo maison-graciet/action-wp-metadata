@@ -168,7 +168,7 @@ const RunVersionning = (indexFile=false) => {
   // core.setOutput("json", json);
   // core.setOutput("contentUpdated", newContentIndexFile);
   writeFileSync(pathIndex, newContentIndexFile ,{encoding: "utf8"});
-  writeFileSync("./meta-data.json", json ,{encoding: "utf8"});
+  writeFileSync("./meta-data.json", JSON.stringify(json) ,{encoding: "utf8"});
 };
 
 
