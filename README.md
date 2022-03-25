@@ -6,15 +6,19 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 ## Inputs
 
-## `who-to-greet`
+## `folder`
 
 **Required** The name of the person to greet. Default `"World"`.
 
 ## Outputs
 
-## `time`
+## `json`
 
-The time we greeted you.
+json with comment wp version updated.
+
+## `contentUpdated`
+
+comment wp version updated.
 
 ## Example usage
 
