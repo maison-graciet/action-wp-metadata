@@ -176,6 +176,7 @@ const RunVersionning = (indexFile=false) => {
 
 try {
   if ((core.getInput('indexFile') === "") || (core.getInput('indexFile') === "style.css")) {
+    console.log("ici")
     RunVersionning();
   } else {
     RunVersionning(core.getInput('indexFile'));
@@ -185,5 +186,5 @@ try {
 }
 
 
-// RunVersionning("gracietco-gut.php");
+// RunVersionning("style.css");
 // RunVersionning(folder="gutenberg-plugin", indexFile="gracietco-gut.php");
