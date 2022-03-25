@@ -1,4 +1,3 @@
-
 const core = require('@actions/core');
 const github = require('@actions/github');
 const readFileSync = require("fs").readFileSync;
@@ -155,7 +154,7 @@ const JSONtoComment = (json, isPHP) => {
 };
 
 const RunVersionning = (indexFile=false) => {
-  const pathIndex = `./${(indexFile) ? indexFile : "./style.css" }`;
+  const pathIndex = !indexFile ? "./style.css" : indexFile;
   const newVersion = extractVersion(pathIndex);
   const comment = extractComment(getFileContent(pathIndex));
   const commentNewVersion = comment.replace(/Version:.*\n/, `Version: ${newVersion}\n`);
@@ -167,6 +166,9 @@ const RunVersionning = (indexFile=false) => {
 
   // core.setOutput("json", json);
   // core.setOutput("contentUpdated", newContentIndexFile);
+  // console.log(newContentIndexFile);
+  // console.log(JSON.stringify(json));
+
   writeFileSync(pathIndex, newContentIndexFile ,{encoding: "utf8"});
   writeFileSync("./meta-data.json", JSON.stringify(json) ,{encoding: "utf8"});
 };
@@ -181,5 +183,7 @@ try {
 } catch (error) {
   core.setFailed(error.message);
 }
-// RunVersionning(folder="gco-minimal");
+
+
+// RunVersionning("gracietco-gut.php");
 // RunVersionning(folder="gutenberg-plugin", indexFile="gracietco-gut.php");
