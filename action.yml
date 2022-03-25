@@ -4,11 +4,10 @@ inputs:
   folder:  # id of input
     description: 'Folder plugin or theme'
     required: true
-    default: ''
   indexFile:  # id of input
     description: 'Enter file plugin or theme'
     required: false
-    default: ''
+    default: false
 outputs:
   json: # id of output
     description: 'Json informations comment WP'
