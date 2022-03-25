@@ -24,4 +24,5 @@ comment wp version updated.
 
 uses: actions/hello-world-javascript-action@v1.1
 with:
-  who-to-greet: 'Mona the Octocat'
+  folder: 'folder name plugin or theme'
+  indexFile: 'name index file plugin or theme'
