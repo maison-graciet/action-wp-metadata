@@ -173,7 +173,11 @@ const RunVersionning = (indexFile=false) => {
 
 
 try {
-  RunVersionning(core.getInput('indexFile'));
+  if ((core.getInput('indexFile') === "") || (core.getInput('indexFile') === "style.css")) {
+    RunVersionning(false);
+  } else {
+    RunVersionning(core.getInput('indexFile'));
+  }
 } catch (error) {
   core.setFailed(error.message);
 }
