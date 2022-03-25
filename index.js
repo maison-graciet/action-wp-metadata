@@ -1,8 +1,9 @@
 
 const core = require('@actions/core');
 const github = require('@actions/github');
-
 const readFileSync = require("fs").readFileSync;
+const writeFileSync = require("fs").writeFileSync;
+
 /**
  * @Params 
  * **pathFile**: path du fichier à lire
@@ -159,11 +160,15 @@ const RunVersionning = (indexFile=false) => {
   const comment = extractComment(getFileContent(pathIndex));
   const commentNewVersion = comment.replace(/Version:.*\n/, `Version: ${newVersion}\n`);
   const json = commentToJSON(commentNewVersion);
+  json["is-plugin"] = indexFile ?  true : false;
   // Que ce soit un fichier .php on style.css on remplace le commentaire par le nouveau
   const newContentIndexFile = getFileContent(pathIndex).replace(comment, commentNewVersion);
 
-  core.setOutput("json", json);
-  core.setOutput("contentUpdated", newContentIndexFile);
+
+  // core.setOutput("json", json);
+  // core.setOutput("contentUpdated", newContentIndexFile);
+  writeFileSync(pathIndex, newContentIndexFile ,{encoding: "utf8"});
+  writeFileSync("./meta-data.json", json ,{encoding: "utf8"});
 };
 
 
