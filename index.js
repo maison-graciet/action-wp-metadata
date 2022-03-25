@@ -153,8 +153,8 @@ const JSONtoComment = (json, isPHP) => {
   return output.join("\n");
 };
 
-const RunVersionning = (folder="gutenberg-plugin", indexFile=false) => {
-  const pathIndex = `./${folder}/${(indexFile) ? indexFile : "style.css" }`;
+const RunVersionning = (indexFile=false) => {
+  const pathIndex = `./${(indexFile) ? indexFile : "./style.css" }`;
   const newVersion = extractVersion(pathIndex);
   const comment = extractComment(getFileContent(pathIndex));
   const commentNewVersion = comment.replace(/Version:.*\n/, `Version: ${newVersion}\n`);
@@ -168,7 +168,7 @@ const RunVersionning = (folder="gutenberg-plugin", indexFile=false) => {
 
 
 try {
-  RunVersionning(core.getInput('folder'), core.getInput('indexFile'));
+  RunVersionning(core.getInput('indexFile'));
 } catch (error) {
   core.setFailed(error.message);
 }

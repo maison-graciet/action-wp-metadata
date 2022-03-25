@@ -1,9 +1,6 @@
 name: 'Incremental Version plugin/theme'
 description: "Action permettant d'incrémenter la version d'un plugin ou un thème"
 inputs:
-  folder:  # id of input
-    description: 'Folder plugin or theme'
-    required: true
   indexFile:  # id of input
     description: 'Enter file plugin or theme'
     required: false

@@ -9,7 +9,6 @@ jobs:
         id: increment
         uses: maison-graciet/action-wp-metadata@master
         with:
-          folder: 'gutenberg-plugin'
           indexFile: 'gracietco-gut.php'
       - name: Get json and comment updated.
         run: echo "json ${{ steps.increment.outputs.json }} and contentUpdated ${{ steps.increment.outputs.contentUpdated }}"
