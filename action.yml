@@ -16,4 +16,4 @@ outputs:
     description: 'Content updated style.css or indexFile plugin.'
 runs:
   using: 'node16'
-  main: 'versionning-wp.js'
+  main: 'index.js'
