@@ -1,3 +1,7 @@
+
+const core = require('@actions/core');
+const github = require('@actions/github');
+
 const readFileSync = require("fs").readFileSync;
 /**
  * @Params 
@@ -161,6 +165,34 @@ const RunVersionning = (folder="gutenberg-plugin", indexFile=false) => {
   console.log(newVersion)
   console.log(json)
   console.log(newContentIndexFile)
+  core.setOutput("json", json);
+  core.setOutput("contentUpdated", newContentIndexFile);
+
 };
+
+
+
+
+
+
+
+// try {
+//   // `who-to-greet` input defined in action metadata file
+//   const nameToGreet = core.getInput('who-to-greet');
+//   console.log(`Hello ${nameToGreet}!`);
+//   const time = (new Date()).toTimeString();
+//   core.setOutput("time", time);
+//   // Get the JSON webhook payload for the event that triggered the workflow
+//   const payload = JSON.stringify(github.context.payload, undefined, 2)
+//   console.log(`The event payload: ${payload}`);
+// } catch (error) {
+//   core.setFailed(error.message);
+// }
+
+try {
+  RunVersionning(core.getInput('folder'), core.getInput('indexFile'));
+} catch (error) {
+  core.setFailed(error.message);
+}
 // RunVersionning(folder="gco-minimal");
-// RunVersionning(folder="gutenberg-plugin", "gracietco-gut.php");
+// RunVersionning(folder="gutenberg-plugin", indexFile="gracietco-gut.php");

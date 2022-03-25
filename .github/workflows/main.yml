@@ -1,15 +1,15 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  increment_version_and_update_comment_wp_file_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Increment version plugin/theme and update comment file.
     steps:
-      - name: Hello world action step
-        id: hello
+      - name: Increment action step
+        id: increment
         uses: maison-graciet/action-wp-metadata@v1.1
         with:
-          who-to-greet: 'Maison Graciet'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+          folder: 'gutenberg-plugin'
+          indexFile: 'gracietco-gut.php'
+      - name: Get json and comment updated.
+        run: echo "json ${{ steps.increment.outputs.json }} and contentUpdated ${{ steps.increment.outputs.contentUpdated }}"

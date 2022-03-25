@@ -1,13 +1,19 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Incremental Version plugin/theme'
+description: "Action permettant d'incrémenter la version d'un plugin ou un thème"
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  folder:  # id of input
+    description: 'Folder plugin or theme'
     required: true
-    default: 'World'
+    default: ''
+  indexFile:  # id of input
+    description: 'Enter file plugin or theme'
+    required: false
+    default: ''
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  json: # id of output
+    description: 'Json informations comment WP'
+  contentUpdated: # id of output
+    description: 'Content updated style.css or indexFile plugin.'
 runs:
   using: 'node16'
-  main: 'index.js'
+  main: 'versionning-wp.js'
