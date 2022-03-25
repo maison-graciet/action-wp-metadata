@@ -164,11 +164,6 @@ const RunVersionning = (indexFile=false) => {
   const newContentIndexFile = getFileContent(pathIndex).replace(comment, commentNewVersion);
 
 
-  // core.setOutput("json", json);
-  // core.setOutput("contentUpdated", newContentIndexFile);
-  // console.log(newContentIndexFile);
-  // console.log(JSON.stringify(json));
-
   writeFileSync(pathIndex, newContentIndexFile ,{encoding: "utf8"});
   writeFileSync("./meta-data.json", JSON.stringify(json) ,{encoding: "utf8"});
 };

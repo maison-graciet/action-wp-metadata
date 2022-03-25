@@ -1,28 +1,47 @@
 
 
-# Hello world javascript action
+# Action Github permettant de mettre à jour la version du plugin ou thème.
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+### Inputs à fournir dans l'action du dépôt (plugin ou thème)
+```
+indexFolder: le_fichier_d'entrée
+```
+Ce fichier est par exemple `style.css` pour les thèmes ou alors le nom du fichier d'entrée du plugin `exemple-fichier.php`
 
-## Inputs
+---
 
-## `folder`
+### Outputs
+```
+json: liste des méta-data des commentaires modifiés
 
-**Required** The name of the person to greet. Default `"World"`.
+contentUpdated: le contenu du fichier avec les commentaires modifiés (nouveau fichier style.css ou nouveau fichier.php)
+```
 
-## Outputs
-
-## `json`
-
-json with comment wp version updated.
-
-## `contentUpdated`
-
-comment wp version updated.
+### ✅ le fichier meta-data.json est ajouté à la release. Ce fichier contient les nouvelles meta-données des commentaires.
+### 🆘 Pensez à commiter le fichier modifié dans l'action github pour qu'il soit modifié sur le dépôt !
 
 ## Example usage
 
-uses: actions/hello-world-javascript-action@v1.1
-with:
-  folder: 'folder name plugin or theme'
-  indexFile: 'name index file plugin or theme'
+style.css
+```
+- name: Increment action step
+    id: increment
+    uses: maison-graciet/action-wp-metadata@master
+    with:
+      indexFile: 'style.css'
+- name: Commit new package.json version
+  run: |
+    git commit package.json package-lock.json style.css -m "[bot] Updated library version"
+```
+
+ou le fichier d'entrée fichier.php
+```
+- name: Increment action step
+    id: increment
+    uses: maison-graciet/action-wp-metadata@master
+    with:
+      indexFile: 'gracietco-gut.php'
+- name: Commit new package.json version
+  run: |
+    git commit package.json package-lock.json gracietco-gut.php -m "[bot] Updated library version"
+```
