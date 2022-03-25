@@ -160,7 +160,7 @@ const RunVersionning = (indexFile=false) => {
   const comment = extractComment(getFileContent(pathIndex));
   const commentNewVersion = comment.replace(/Version:.*\n/, `Version: ${newVersion}\n`);
   const json = commentToJSON(commentNewVersion);
-  json["is-plugin"] = indexFile ?  true : false;
+  json["is_plugin"] = indexFile ?  true : false;
   // Que ce soit un fichier .php on style.css on remplace le commentaire par le nouveau
   const newContentIndexFile = getFileContent(pathIndex).replace(comment, commentNewVersion);
 
