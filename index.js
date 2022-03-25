@@ -176,7 +176,7 @@ const RunVersionning = (indexFile=false) => {
 
 try {
   if ((core.getInput('indexFile') === "") || (core.getInput('indexFile') === "style.css")) {
-    RunVersionning(false);
+    RunVersionning();
   } else {
     RunVersionning(core.getInput('indexFile'));
   }
