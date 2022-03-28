@@ -127,7 +127,7 @@ const commentToJSON = (comment) => {
     }
     line = (isContentBegin(comment, "<?php")) ? line.slice(2) : line;
     line = line.split(": ", 2);
-    output[toKebabCase(line[0])] = line[1];
+    output[toKebabCase(line[0])] = line[1].trim();
   });
   return output;
 };
