@@ -166,7 +166,7 @@ const RunVersionning = (indexFile=false) => {
 
 
   writeFileSync(pathIndex, newContentIndexFile ,{encoding: "utf8"});
-  writeFileSync("./meta-data.json", JSON.stringify(json) ,{encoding: "utf8"});
+  writeFileSync("./metadata.json", JSON.stringify(json) ,{encoding: "utf8"});
 };
 
 
