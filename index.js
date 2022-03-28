@@ -55,7 +55,7 @@ const toKebabCase = (string) => {
  * @Params **fileContent**: contenu d'un fichier 
 */
 const extractComment = (fileContent) => {
-  let regexPlugin = "^<\\?php\\n\\/\\*\\*\\n(\\*.*\\n)*\\*\\/";
+  let regexPlugin = "^<\\?php\\n.*?\\/\\*\\*\\n(\\*.*\\n)*\\*\\/";
   let regexTheme = "^\\/\\*\!?\\n(.*\\n)*\\*\\/";
   regexp = (isContentBegin(fileContent, "<?php")) ? (regexPlugin) : (regexTheme);
   regexp = new RegExp(regexp, "g");
