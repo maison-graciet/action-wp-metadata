@@ -6,10 +6,8 @@ inputs:
     required: false
     default: false
 outputs:
-  json: # id of output
-    description: 'Json informations comment WP'
-  contentUpdated: # id of output
-    description: 'Content updated style.css or indexFile plugin.'
+  version: # id of output
+    description: 'Version incrémentée du plugin ou du thème'
 runs:
   using: 'node16'
   main: 'index.js'

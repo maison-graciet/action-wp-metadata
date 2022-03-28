@@ -156,6 +156,7 @@ const JSONtoComment = (json, isPHP) => {
 const RunVersionning = (indexFile=false) => {
   const pathIndex = !indexFile ? "./style.css" : indexFile;
   const newVersion = extractVersion(pathIndex);
+  core.setOutput("version", newVersion);
   const comment = extractComment(getFileContent(pathIndex));
   const commentNewVersion = comment.replace(/Version:.*\n/, `Version: ${newVersion}\n`);
   const json = commentToJSON(commentNewVersion);
@@ -179,7 +180,3 @@ try {
 } catch (error) {
   core.setFailed(error.message);
 }
-
-
-// RunVersionning("style.css");
-// RunVersionning(folder="gutenberg-plugin", indexFile="gracietco-gut.php");
